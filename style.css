@@ -1,0 +1,253 @@
+:root {
+  --bg-color: #080808;
+  --panel-bg: #111111;
+  --accent-red: #8B0000;
+  --bright-red: #DC143C;
+  --text-main: #EAEAEA;
+  --text-muted: #777777;
+  --border-dark: #222222;
+  --font-main: 'Helvetica Neue', 'Arial', sans-serif;
+  --font-gothic: 'Cinzel', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgba(8, 8, 8, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-dark);
+  z-index: 1000;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.logo-symbol {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--bright-red);
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-symbol span {
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--bright-red);
+  transform: rotate(-45deg);
+}
+
+.brand-name {
+  font-family: var(--font-gothic);
+  font-size: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.jp-sub {
+  font-size: 10px;
+  color: var(--accent-red);
+  letter-spacing: 0.1em;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  color: var(--bright-red);
+}
+
+/* Hero & Section Styling */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.hero-bg-text {
+  position: absolute;
+  font-size: 18vw;
+  font-family: var(--font-gothic);
+  color: rgba(139, 0, 0, 0.05);
+  user-select: none;
+  z-index: 2;
+}
+
+/* Dragon Background Watermark */
+.hero-dragon-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-dragon-bg svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 30px rgba(139, 0, 0, 0.2));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 20px;
+}
+
+.hero-desc {
+  max-width: 600px;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.btn-archive {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1px solid var(--accent-red);
+  color: var(--text-main);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  transition: all 0.3s ease;
+}
+
+.btn-archive:hover {
+  background-color: var(--accent-red);
+  color: #fff;
+}
+
+/* Catalog Page Layout */
+.catalog-container {
+  padding: 140px 40px 60px;
+}
+
+.catalog-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 20px;
+}
+
+.catalog-header h1 {
+  font-size: 2rem;
+  font-family: var(--font-gothic);
+  letter-spacing: 0.2em;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-dark);
+  padding: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.product-card:hover {
+  border-color: var(--accent-red);
+}
+
+.product-img {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.product-price {
+  color: var(--bright-red);
+}
+
+footer {
+  padding: 40px;
+  border-top: 1px solid var(--border-dark);
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+}
